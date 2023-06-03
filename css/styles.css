@@ -121,7 +121,7 @@ img {
     background-color: var(--ocean-color);
     border-radius: 2px;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     transform: scaleX(0);
     transition: transform var(--transition-timing-function);
@@ -423,7 +423,7 @@ img {
     padding: 12px 24px;
     transition: background-color var(--transition-timing-function),
         color var(--transition-timing-function),
-        border var(--transition-timing-function),
+        border-color var(--transition-timing-function),
         box-shadow var(--transition-timing-function);
 }
 
@@ -582,7 +582,7 @@ img {
 }
 
 .is-hidden {
-    visibility: none;
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
 }
@@ -598,7 +598,6 @@ img {
     background-color: var(--dairy-color);
     border-radius: 4px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    padding: 24px;
 }
 
 .backdrop.is-hidden .modal {
@@ -606,6 +605,10 @@ img {
 }
 
 .modal-close {
+    padding: 0;
+    position: absolute;
+    top: 24px;
+    right: 24px;
     width: 24px;
     height: 24px;
     background: var(--accent-color);
@@ -615,7 +618,9 @@ img {
     margin-left: auto;
     align-items: center;
     justify-content: center;
-    transition: background-color var(--transition-timing-function);
+    transition: background-color var(--transition-timing-function),
+        border var(--transition-timing-function);
+    cursor: pointer;
 }
 
 .modal-close:is(:hover, :focus) {
